@@ -1,56 +1,69 @@
-<div class="banner-timer-container">
-    <div class="text-group">
-        <div class="banner-title">16회차 DMQ 알림신청 마감까지</div>
-        <div class="timer-inline">
-            <span id="days">00</span>일 
-            <span id="hours">00</span>시간 
-            <span id="minutes">00</span>분 
-            <span id="seconds">00</span>초
+<div class="floating-timer-container">
+    <div class="content-wrapper">
+        <div class="text-group">
+            <div class="banner-title">16회차 DMQ 알림신청 마감까지</div>
+            <div class="timer-inline">
+                <span id="days">00</span>일 
+                <span id="hours">00</span>시간 
+                <span id="minutes">00</span>분 
+                <span id="seconds">00</span>초
+            </div>
         </div>
+        <!-- 원하는 이동 링크로 수정하세요 -->
+        <a href="https://your-target-link.com" class="apply-button" target="_blank">무료 알림 신청하기 →</a>
     </div>
-    <a href="#" class="apply-button" target="_blank">무료 알림 신청하기 →</a>
 </div>
 
 <style>
-    .banner-timer-container *, .banner-timer-container *:before, .banner-timer-container *:after {
+    .floating-timer-container *, .floating-timer-container *:before, .floating-timer-container *:after {
         box-sizing: border-box;
         margin: 0;
         padding: 0;
     }
 
-    .banner-timer-container {
+    /* 플로팅 핵심 스타일 */
+    .floating-timer-container {
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-        width: 100%;
+        position: fixed; /* 화면에 고정 */
+        bottom: 20px;    /* 화면 아래에서 20px 위 */
+        left: 50%;       /* 화면 가운데 정렬 */
+        transform: translateX(-50%);
+        width: calc(100% - 40px);
         max-width: 600px;
-        margin: 0 auto;
-        background-color: #0b1322;
-        border: 1px solid rgba(255, 255, 255, 0.1);
+        z-index: 999999; /* 다른 요소들 위에 보이도록 설정 */
+        background-color: rgba(11, 19, 34, 0.95); /* 배경색 (살짝 투명한 남색) */
+        backdrop-filter: blur(10px); /* 배경 블러 효과 */
+        border: 1px solid rgba(196, 248, 75, 0.3); /* 라임색 테두리 포인트 */
         border-radius: 16px;
-        padding: 18px 24px;
+        padding: 16px 24px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .floating-timer-container .content-wrapper {
         display: flex;
         align-items: center;
         justify-content: space-between;
         gap: 15px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        width: 100%;
     }
 
-    .banner-timer-container .text-group {
+    .floating-timer-container .text-group {
         display: flex;
         flex-direction: column;
-        gap: 6px;
+        gap: 4px;
     }
 
-    .banner-timer-container .banner-title {
+    .floating-timer-container .banner-title {
         color: #FFFFFF !important;
-        font-size: 0.9rem;
+        font-size: 0.85rem;
         font-weight: 500;
         letter-spacing: -0.01em;
         word-break: keep-all;
     }
 
-    .banner-timer-container .timer-inline {
+    .floating-timer-container .timer-inline {
         color: #C4F84B !important; /* 라임색 */
-        font-size: 1.3rem;
+        font-size: 1.2rem;
         font-weight: 800;
         letter-spacing: -0.02em;
         font-variant-numeric: tabular-nums;
@@ -58,7 +71,7 @@
         white-space: nowrap;
     }
 
-    .banner-timer-container .apply-button {
+    .floating-timer-container .apply-button {
         background-color: #C4F84B !important;
         color: #0b1322 !important;
         font-size: 0.85rem;
@@ -71,29 +84,33 @@
         box-shadow: 0 4px 12px rgba(196, 248, 75, 0.2);
     }
 
-    .banner-timer-container .apply-button:hover {
+    .floating-timer-container .apply-button:hover {
         opacity: 0.9;
         transform: translateY(-2px);
     }
 
-    /* 모바일 환경 대응 (폭이 좁아지면 세로로 배치) */
+    /* 모바일 환경 대응 */
     @media (max-width: 520px) {
-        .banner-timer-container {
+        .floating-timer-container {
+            bottom: 10px;
+            width: calc(100% - 20px);
+            padding: 14px 16px;
+        }
+        .floating-timer-container .content-wrapper {
             flex-direction: column;
             align-items: stretch;
-            padding: 18px;
             text-align: center;
         }
-        .banner-timer-container .text-group {
+        .floating-timer-container .text-group {
             align-items: center;
         }
-        .banner-timer-container .timer-inline {
-            font-size: 1.15rem;
+        .floating-timer-container .timer-inline {
+            font-size: 1.1rem;
         }
-        .banner-timer-container .apply-button {
+        .floating-timer-container .apply-button {
             text-align: center;
             width: 100%;
-            margin-top: 5px;
+            margin-top: 4px;
         }
     }
 </style>
