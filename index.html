@@ -8,6 +8,7 @@
             <span id="seconds">00</span>초
         </div>
     </div>
+    <!-- 필요시 href="#" 에 실제 이동할 링크를 넣어주세요 -->
     <a href="#" class="apply-button" target="_blank">무료 알림 신청하기 →</a>
 </div>
 
@@ -20,18 +21,26 @@
 
     .banner-timer-container {
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-        width: 100%;
+        
+        /* 👇 [플로팅 핵심 설정] 화면 하단에 고정되도록 추가/수정된 속성들입니다 */
+        position: fixed !important;
+        bottom: 25px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        z-index: 999999 !important;
+        
+        width: calc(100% - 40px);
         max-width: 600px;
-        margin: 0 auto;
-        background-color: #0b1322;
-        border: 1px solid rgba(255, 255, 255, 0.1);
+        background-color: rgba(11, 19, 34, 0.95); /* 투명도 살짝 주어 세련되게 처리 */
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.15);
         border-radius: 16px;
         padding: 18px 24px;
         display: flex;
         align-items: center;
         justify-content: space-between;
         gap: 15px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     }
 
     .banner-timer-container .text-group {
@@ -79,9 +88,11 @@
     /* 모바일 환경 대응 (폭이 좁아지면 세로로 배치) */
     @media (max-width: 520px) {
         .banner-timer-container {
+            bottom: 15px !important;
+            width: calc(100% - 20px) !important;
             flex-direction: column;
             align-items: stretch;
-            padding: 18px;
+            padding: 16px;
             text-align: center;
         }
         .banner-timer-container .text-group {
