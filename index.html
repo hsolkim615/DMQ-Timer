@@ -1,115 +1,99 @@
-<div class="timer-container">
-    <h1 class="title">제 16회 DMQ 시험 접수일까지</h1>
-    
-    <div class="timer-wrapper">
-        <div class="time-box">
-            <span class="number" id="days">00</span>
-            <span class="label">일</span>
-        </div>
-        <div class="time-box">
-            <span class="number" id="hours">00</span>
-            <span class="label">시간</span>
-        </div>
-        <div class="time-box">
-            <span class="number" id="minutes">00</span>
-            <span class="label">분</span>
-        </div>
-        <div class="time-box">
-            <span class="number" id="seconds">00</span>
-            <span class="label">초</span>
+<div class="banner-timer-container">
+    <div class="text-group">
+        <div class="banner-title">16회차 DMQ 알림신청 마감까지</div>
+        <div class="timer-inline">
+            <span id="days">00</span>일 
+            <span id="hours">00</span>시간 
+            <span id="minutes">00</span>분 
+            <span id="seconds">00</span>초
         </div>
     </div>
+    <a href="#" class="apply-button" target="_blank">무료 알림 신청하기 →</a>
 </div>
 
 <style>
-    .timer-container *, .timer-container *:before, .timer-container *:after {
+    .banner-timer-container *, .banner-timer-container *:before, .banner-timer-container *:after {
         box-sizing: border-box;
         margin: 0;
         padding: 0;
     }
 
-    .timer-container {
+    .banner-timer-container {
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
         width: 100%;
-        max-width: 600px; /* 가로 최대 크기를 600px로 축소 */
+        max-width: 600px;
         margin: 0 auto;
-        background-color: #162542;
-        border-radius: 20px;
-        padding: 30px 20px; /* 내부 여백 최적화 */
-        box-shadow: 0 15px 35px rgba(19, 108, 252, 0.15);
+        background-color: #0b1322;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        padding: 18px 24px;
         display: flex;
-        flex-direction: column;
         align-items: center;
-    }
-
-    .timer-container .title {
-        color: #FFFFFF !important;
-        font-size: 1.5rem; /* 600px 폭에 맞게 제목 크기 조절 */
-        font-weight: 700;
-        text-align: center;
-        margin-bottom: 25px;
-        letter-spacing: -0.02em;
-        word-break: keep-all;
-        text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
-    }
-
-    .timer-container .timer-wrapper {
-        display: flex;
         justify-content: space-between;
-        width: 100%;
-        gap: 10px; /* 박스 간격 슬림하게 조정 */
+        gap: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     }
 
-    .timer-container .time-box {
-        flex: 1;
-        background: linear-gradient(145deg, rgba(19, 108, 252, 0.1), rgba(22, 37, 66, 0.8));
-        border: 1px solid rgba(19, 108, 252, 0.3);
-        border-radius: 12px;
-        padding: 20px 5px;
+    .banner-timer-container .text-group {
         display: flex;
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 6px 24px rgba(0, 0, 0, 0.2);
+        gap: 6px;
     }
 
-    .timer-container .number {
-        color: #C4F84B !important;
-        font-size: 2.8rem; /* 600px 폭에 알맞은 숫자 크기 */
-        font-weight: 800;
-        line-height: 1;
-        margin-bottom: 8px;
-        font-variant-numeric: tabular-nums;
-        text-shadow: 0 4px 12px rgba(196, 248, 75, 0.3);
-    }
-
-    .timer-container .label {
-        color: #136CFC !important;
+    .banner-timer-container .banner-title {
+        color: #FFFFFF !important;
         font-size: 0.9rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
+        font-weight: 500;
+        letter-spacing: -0.01em;
+        word-break: keep-all;
     }
 
-    /* 아주 작은 모바일 화면 대응 */
-    @media (max-width: 480px) {
-        .timer-container {
-            padding: 20px 12px;
+    .banner-timer-container .timer-inline {
+        color: #C4F84B !important; /* 라임색 */
+        font-size: 1.3rem;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        font-variant-numeric: tabular-nums;
+        text-shadow: 0 0 10px rgba(196, 248, 75, 0.2);
+        white-space: nowrap;
+    }
+
+    .banner-timer-container .apply-button {
+        background-color: #C4F84B !important;
+        color: #0b1322 !important;
+        font-size: 0.85rem;
+        font-weight: 700;
+        padding: 12px 18px;
+        border-radius: 9999px;
+        text-decoration: none;
+        white-space: nowrap;
+        transition: transform 0.2s ease, opacity 0.2s ease;
+        box-shadow: 0 4px 12px rgba(196, 248, 75, 0.2);
+    }
+
+    .banner-timer-container .apply-button:hover {
+        opacity: 0.9;
+        transform: translateY(-2px);
+    }
+
+    /* 모바일 환경 대응 (폭이 좁아지면 세로로 배치) */
+    @media (max-width: 520px) {
+        .banner-timer-container {
+            flex-direction: column;
+            align-items: stretch;
+            padding: 18px;
+            text-align: center;
         }
-        .timer-container .title {
-            font-size: 1.25rem;
-            margin-bottom: 20px;
+        .banner-timer-container .text-group {
+            align-items: center;
         }
-        .timer-container .timer-wrapper {
-            flex-wrap: wrap;
-            gap: 8px;
+        .banner-timer-container .timer-inline {
+            font-size: 1.15rem;
         }
-        .timer-container .time-box {
-            flex: calc(50% - 4px);
-            padding: 15px 5px;
-        }
-        .timer-container .number {
-            font-size: 2.2rem;
+        .banner-timer-container .apply-button {
+            text-align: center;
+            width: 100%;
+            margin-top: 5px;
         }
     }
 </style>
