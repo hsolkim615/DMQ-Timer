@@ -8,11 +8,12 @@
             <span id="seconds">00</span>초
         </div>
     </div>
-    <a href="#" class="apply-button" onclick="goToPage2(event)">무료 알림 신청하기 →</a>
 </div>
 
 <style>
-    .banner-timer-container *, .banner-timer-container *:before, .banner-timer-container *:after {
+    .banner-timer-container *,
+    .banner-timer-container *::before,
+    .banner-timer-container *::after {
         box-sizing: border-box;
         margin: 0;
         padding: 0;
@@ -31,13 +32,16 @@
         align-items: center;
         justify-content: space-between;
         gap: 15px;
+        text-align: left;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     }
 
     .banner-timer-container .text-group {
         display: flex;
         flex-direction: column;
+        align-items: flex-start;
         gap: 6px;
+        text-align: left;
     }
 
     .banner-timer-container .banner-title {
@@ -46,6 +50,7 @@
         font-weight: 500;
         letter-spacing: -0.01em;
         word-break: keep-all;
+        text-align: left !important;
     }
 
     .banner-timer-container .timer-inline {
@@ -56,51 +61,35 @@
         font-variant-numeric: tabular-nums;
         text-shadow: 0 0 10px rgba(196, 248, 75, 0.2);
         white-space: nowrap;
+        text-align: left !important;
     }
 
-    .banner-timer-container .apply-button {
-        background-color: #C4F84B !important;
-        color: #0b1322 !important;
-        font-size: 0.85rem;
-        font-weight: 700;
-        padding: 12px 18px;
-        border-radius: 9999px;
-        text-decoration: none;
-        white-space: nowrap;
-        transition: transform 0.2s ease, opacity 0.2s ease;
-        box-shadow: 0 4px 12px rgba(196, 248, 75, 0.2);
-        cursor: pointer;
-    }
-
-    .banner-timer-container .apply-button:hover {
-        opacity: 0.9;
-        transform: translateY(-2px);
-    }
-
-    /* 모바일 환경 대응 */
     @media (max-width: 520px) {
         .banner-timer-container {
             flex-direction: column;
             align-items: stretch;
             padding: 18px;
-            text-align: center;
+            text-align: left !important;
         }
+
         .banner-timer-container .text-group {
-            align-items: center;
+            align-items: flex-start !important;
+            width: 100% !important;
+            text-align: left !important;
         }
+
+        .banner-timer-container .banner-title,
+        .banner-timer-container .timer-inline {
+            text-align: left !important;
+        }
+
         .banner-timer-container .timer-inline {
             font-size: 1.15rem;
-        }
-        .banner-timer-container .apply-button {
-            text-align: center;
-            width: 100%;
-            margin-top: 5px;
         }
     }
 </style>
 
 <script>
-    // 카운트다운 타이머 로직
     (function() {
         const targetDate = new Date("2026-11-02T00:00:00+09:00").getTime();
 
@@ -142,15 +131,4 @@
         updateTimer();
         window.timerInterval = setInterval(updateTimer, 1000);
     })();
-
-    // 탈리 폼 페이지 이동 연동 함수
-    function goToPage2(event) {
-        event.preventDefault();
-        
-        if (window.parent && typeof window.parent.tallyNavigate === 'function') {
-            window.parent.tallyNavigate('next');
-        } else {
-            console.log("탈리 부모 창 페이지 이동 함수를 찾을 수 없습니다.");
-        }
-    }
 </script>
