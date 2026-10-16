@@ -1,11 +1,8 @@
 <div class="banner-timer-container">
     <div class="text-group">
-        <div class="banner-title">16회차 DMQ 알림신청 마감까지</div>
+        <div class="banner-title">알림신청 마감까지</div>
         <div class="timer-inline">
-            <span id="days">00</span>일 
-            <span id="hours">00</span>시간 
-            <span id="minutes">00</span>분 
-            <span id="seconds">00</span>초
+            D-<span id="days">00</span> <span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span>
         </div>
     </div>
 </div>
@@ -58,7 +55,7 @@
 
     .banner-timer-container .banner-title {
         color: #FFFFFF !important;
-        font-size: 0.9rem;
+        font-size: 18px;
         font-weight: 500;
         letter-spacing: -0.01em;
         word-break: keep-all;
@@ -67,7 +64,7 @@
 
     .banner-timer-container .timer-inline {
         color: #C4F84B !important;
-        font-size: 1.3rem;
+        font-size: 32px;
         font-weight: 800;
         letter-spacing: -0.02em;
         font-variant-numeric: tabular-nums;
@@ -97,7 +94,7 @@
         }
 
         .banner-timer-container .timer-inline {
-            font-size: 1.15rem;
+            font-size: 24px;
         }
     }
 </style>
@@ -145,3 +142,5 @@
         window.timerInterval = setInterval(updateTimer, 1000);
     })();
 </script>
+
+
